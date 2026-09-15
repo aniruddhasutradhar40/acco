@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCO — AI-Powered Accounting & Finance BPO</title>
+<meta name="description" content="ACCO delivers AI-powered bookkeeping, CPA support, payroll, tax filing and finance BPO for SMEs, CPA firms and enterprises across the USA, UK, UAE, Australia, Canada and India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,460;9..144,560&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --near-black:#151513;
+    --white:#ffffff;
+    --grey-100:#f6f5f2;
+    --grey-200:#ece9e2;
+    --grey-400:#c9c5ba;
+    --grey-600:#8a867a;
+    --grey-800:#403d35;
+    --gold:#a9822f;
+    --gold-dim:#8a6d2c;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --max:1240px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+  body{
+    font-family:var(--sans);
+    color:var(--near-black);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{position:relative;}
+  h1,h2,h3,h4{font-family:var(--serif); font-weight:560; line-height:1.08; letter-spacing:-0.01em;}
+  h2{font-size:clamp(28px,3.6vw,44px); font-weight:460;}
+  h3{font-size:clamp(19px,2vw,23px); font-weight:560;}
+  p{color:var(--grey-800);}
+  .eyebrow{font-size:13px; color:var(--grey-600); font-weight:500; margin-bottom:10px;}
+  .section-head{max-width:620px; margin-bottom:44px;}
+  .section-head p{margin-top:14px; font-size:16px; color:var(--grey-600); max-width:520px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; font-family:var(--sans); font-weight:600; font-size:14.5px;
+    border-radius:2px; border:1px solid transparent; cursor:pointer; white-space:nowrap;
+  }
+  .btn-primary{background:var(--black); color:var(--white);}
+  .btn-primary:hover{background:var(--near-black);}
+  .btn-outline{background:transparent; color:var(--black); border-color:var(--black);}
+  .btn-outline:hover{background:var(--black); color:var(--white);}
+  .btn-gold{background:var(--gold); color:var(--white);}
+  .btn-gold:hover{background:var(--gold-dim);}
+  .btn-white{background:var(--white); color:var(--black);}
+  .btn-ghost-white{background:transparent; color:var(--white); border-color:rgba(255,255,255,.4);}
+  .btn-ghost-white:hover{border-color:var(--white);}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky; top:0; z-index:100; background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--grey-200);
+  }
+  .nav-row{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:560; font-size:21px;}
+  .logo svg{width:28px; height:28px;}
+  nav.primary-nav{display:flex; gap:30px; font-size:14.5px; font-weight:500;}
+  nav.primary-nav a{color:var(--grey-800);}
+  nav.primary-nav a:hover{color:var(--black);}
+  .nav-actions{display:flex; align-items:center; gap:16px;}
+  .hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:22px; height:2px; background:var(--black); display:block;}
+  .mobile-nav{display:none; flex-direction:column; padding:8px 28px 22px; border-top:1px solid var(--grey-200); background:var(--white);}
+  .mobile-nav a{padding:12px 0; border-bottom:1px solid var(--grey-200); font-size:15px;}
+  .mobile-nav.open{display:flex;}
+
+  /* ===== HERO ===== */
+  .hero{background:var(--grey-100); overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr 0.85fr; align-items:center; gap:40px; padding:88px 0 60px;}
+  .hero h1{font-size:clamp(36px,5vw,60px); font-weight:460; max-width:640px;}
+  .hero .lede{font-size:17px; color:var(--grey-800); max-width:480px; margin:22px 0 32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .market-pills{display:flex; flex-wrap:wrap; gap:10px;}
+  .pill{
+    border:1px solid var(--grey-400); border-radius:100px; padding:7px 16px;
+    font-size:13px; color:var(--grey-800); font-weight:500;
+  }
+  .hero-mark{position:relative; display:flex; justify-content:center; align-items:center;}
+  .hero-mark svg{width:min(320px,80%); height:auto;}
+  .hero-mark-bg{position:absolute; inset:0; background:var(--black); border-radius:4px; transform:scale(.92);}
+
+  /* ===== TRUST STRIP ===== */
+  .trust-strip{border-bottom:1px solid var(--grey-200);}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); padding:36px 0;}
+  .trust-item{padding:0 22px; border-left:1px solid var(--grey-200);}
+  .trust-item:first-child{border-left:none; padding-left:0;}
+  .trust-item h4{font-family:var(--sans); font-weight:600; font-size:15px; margin-bottom:6px;}
+  .trust-item p{font-size:13.5px; color:var(--grey-600); margin:0;}
+
+  /* ===== CORE SERVICES OVERVIEW ===== */
+  .core-services{padding:96px 0;}
+  .core-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--grey-200); border:1px solid var(--grey-200);}
+  .core-card{background:var(--white); padding:34px 28px; min-height:210px; display:flex; flex-direction:column; justify-content:space-between;}
+  .core-card .num{font-family:var(--serif); font-size:14px; color:var(--gold); margin-bottom:26px;}
+  .core-card h3{margin-bottom:10px;}
+  .core-card p{font-size:14px; color:var(--grey-600);}
+
+  /* ===== DETAILED SERVICES ===== */
+  .detailed-services{padding:96px 0; background:var(--grey-100);}
+  .service-block{
+    display:grid; grid-template-columns:280px 1fr; gap:40px;
+    padding:44px 0; border-top:1px solid var(--grey-400);
+  }
+  .service-block:last-child{border-bottom:1px solid var(--grey-400);}
+  .service-block .icon{width:40px; height:40px; margin-bottom:16px; color:var(--black);}
+  .service-block h3{margin-bottom:8px;}
+  .service-block .cat-desc{font-size:14px; color:var(--grey-600); max-width:230px;}
+  .service-list{display:grid; grid-template-columns:repeat(3,1fr); gap:9px 24px;}
+  .service-list li{
+    font-size:14.5px; color:var(--grey-800); padding-left:16px; position:relative;
+  }
+  .service-list li::before{
+    content:''; position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--gold);
+  }
+
+  /* ===== COUNTRY TAX ===== */
+  .country-tax{padding:96px 0;}
+  .country-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px; border-bottom:1px solid var(--grey-200);}
+  .tab-btn{
+    background:none; border:none; padding:12px 4px; margin-right:26px; font-family:var(--sans);
+    font-size:15px; font-weight:600; color:var(--grey-600); cursor:pointer; border-bottom:2px solid transparent;
+  }
+  .tab-btn.active{color:var(--black); border-bottom-color:var(--gold);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .tax-cols{display:grid; grid-template-columns:repeat(2,1fr); gap:36px;}
+  .tax-col h4{font-size:15px; font-weight:600; margin-bottom:12px; font-family:var(--sans);}
+  .tax-col ul li{font-size:14.5px; color:var(--grey-800); padding:8px 0; border-bottom:1px solid var(--grey-200);}
+
+  /* ===== PREMIUM AI BANNER ===== */
+  .premium-ai{background:var(--black); color:var(--white); padding:100px 0;}
+  .premium-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .premium-ai .eyebrow{color:var(--gold);}
+  .premium-ai h2{color:var(--white); font-size:clamp(30px,3.8vw,46px);}
+  .premium-ai p{color:var(--grey-400); font-size:16px; margin:20px 0 30px; max-width:440px;}
+  .premium-list{display:flex; flex-direction:column; gap:0;}
+  .premium-list li{
+    display:flex; gap:16px; padding:20px 0; border-top:1px solid rgba(255,255,255,.14);
+    font-size:14.5px; color:var(--grey-400);
+  }
+  .premium-list li:last-child{border-bottom:1px solid rgba(255,255,255,.14);}
+  .premium-list strong{color:var(--white); font-weight:600; min-width:150px; display:inline-block;}
+
+  /* ===== PRICING ===== */
+  .pricing{padding:96px 0;}
+  .pricing.alt{background:var(--grey-100);}
+  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .price-card{
+    border:1px solid var(--grey-200); padding:36px 30px; display:flex; flex-direction:column; background:var(--white);
+  }
+  .price-card.popular{border-color:var(--black); position:relative;}
+  .price-card .badge{
+    position:absolute; top:-13px; left:30px; background:var(--gold); color:var(--white);
+    font-size:11.5px; font-weight:600; padding:5px 12px; letter-spacing:.02em;
+  }
+  .price-card h3{font-size:18px; margin-bottom:14px; font-family:var(--sans); font-weight:600;}
+  .price-amount{font-family:var(--serif); font-size:44px; margin-bottom:4px;}
+  .price-amount span{font-family:var(--sans); font-size:14px; color:var(--grey-600); font-weight:500;}
+  .price-card .sub{font-size:13px; color:var(--grey-600); margin-bottom:26px;}
+  .price-card ul{flex-grow:1; margin-bottom:30px;}
+  .price-card ul li{
+    font-size:14px; padding:10px 0; border-top:1px solid var(--grey-200); color:var(--grey-800);
+  }
+  .price-card .btn{width:100%; justify-content:center;}
+
+  /* ===== INDUSTRY GRID ===== */
+  .industries{padding:96px 0;}
+  .industry-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--grey-200); border:1px solid var(--grey-200);}
+  .industry-card{
+    background:var(--white); padding:28px 22px; display:flex; flex-direction:column; gap:14px; min-height:130px; justify-content:center;
+  }
+  .industry-card .icon{width:26px; height:26px; color:var(--gold);}
+  .industry-card span{font-size:14.5px; font-weight:500; color:var(--near-black);}
+
+  /* ===== MENTORSHIP ===== */
+  .mentorship{padding:96px 0; background:var(--grey-100);}
+  .mentor-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+  .mentor-features{display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:28px;}
+  .mentor-features li{font-size:14.5px; padding-left:18px; position:relative; color:var(--grey-800);}
+  .mentor-features li::before{content:'—'; position:absolute; left:0; color:var(--gold);}
+  .software-badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;}
+  .software-badges span{
+    border:1px solid var(--grey-400); padding:8px 16px; font-size:13px; font-weight:500; color:var(--grey-800);
+  }
+  .expert-callout{border:1px solid var(--grey-400); padding:28px; margin-top:10px;}
+  .expert-callout h4{font-family:var(--sans); font-size:15px; font-weight:600; margin-bottom:8px;}
+  .expert-callout p{font-size:14px; color:var(--grey-600);}
+
+  /* ===== CONSULTATION CTA ===== */
+  .consult-cta{background:var(--gold); color:var(--white); padding:80px 0; text-align:center;}
+  .consult-cta h2{color:var(--white); margin-bottom:16px;}
+  .consult-cta p{color:rgba(255,255,255,.88); max-width:480px; margin:0 auto 32px; font-size:16px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--black); color:var(--grey-400); padding:80px 0 30px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.14);}
+  .footer-logo{display:flex; align-items:center; gap:10px; color:var(--white); font-family:var(--serif); font-size:20px; font-weight:560; margin-bottom:16px;}
+  .footer-logo svg{width:24px; height:24px;}
+  .footer-col h5{color:var(--white); font-size:14px; font-weight:600; margin-bottom:18px; font-family:var(--sans);}
+  .footer-col ul li{padding:6px 0; font-size:14px;}
+  .footer-col ul li a:hover{color:var(--white);}
+  .footer-desc{font-size:14px; max-width:280px; margin-bottom:20px;}
+  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; font-size:13px; flex-wrap:wrap; gap:12px;}
+  .footer-bottom a{color:var(--grey-400);}
+  .footer-bottom a:hover{color:var(--white);}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:200; width:56px; height:56px;
+    background:#1fae51; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+  }
+  .wa-float svg{width:28px; height:28px;}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px){
+    nav.primary-nav, .nav-actions .btn-outline{display:none;}
+    .hamburger{display:flex;}
+    .hero-grid{grid-template-columns:1fr; padding:56px 0 40px;}
+    .hero-mark{order:-1; margin-bottom:20px;}
+    .hero-mark svg{width:180px;}
+    .trust-grid{grid-template-columns:repeat(2,1fr); row-gap:26px;}
+    .trust-item:nth-child(3){border-left:none;}
+    .core-grid{grid-template-columns:repeat(2,1fr);}
+    .service-block{grid-template-columns:1fr;}
+    .service-list{grid-template-columns:repeat(2,1fr);}
+    .tax-cols{grid-template-columns:1fr;}
+    .premium-grid{grid-template-columns:1fr; gap:34px;}
+    .pricing-grid{grid-template-columns:1fr; gap:20px;}
+    .industry-grid{grid-template-columns:repeat(2,1fr);}
+    .mentor-grid{grid-template-columns:1fr; gap:30px;}
+    .mentor-features{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr; gap:34px;}
+  }
+  @media (max-width: 560px){
+    .wrap{padding:0 20px;}
+    .service-list{grid-template-columns:1fr;}
+    .core-grid{grid-template-columns:1fr;}
+    .industry-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:1fr; row-gap:22px;}
+    .trust-item{border-left:none; padding-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGO SVG (reused) -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="acco-mark" viewBox="0 0 160 160">
+    <rect width="160" height="160" fill="var(--black)"/>
+    <rect x="68" y="26" width="46" height="118" rx="23" transform="rotate(18 91 85)" fill="var(--white)"/>
+    <circle cx="127" cy="120" r="22" fill="var(--white)"/>
+  </symbol>
+</svg>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="wrap nav-row">
+    <a href="#" class="logo"><svg viewBox="0 0 160 160"><use href="#acco-mark"/></svg>ACCO</a>
+    <nav class="primary-nav">
+      <a href="#services">Services</a>
+      <a href="#tax">Tax Filing</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#industries">Industries</a>
+      <a href="#mentorship">Mentorship</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#contact" class="btn btn-outline">Talk to us</a>
+      <a href="#consult" class="btn btn-primary">Get Started</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services">Services</a>
+    <a href="#tax">Tax Filing</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#industries">Industries</a>
+    <a href="#mentorship">Mentorship</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Professional Accounting &amp; Business Solutions</h1>
+      <p class="lede">Expert bookkeeping, CPA support, AI-powered accounting, and business process outsourcing for SMEs, CPA firms, and enterprises across the globe.</p>
+      <div class="hero-ctas">
+        <a href="#consult" class="btn btn-primary">Get Started</a>
+        <a href="#pricing" class="btn btn-outline">View Pricing</a>
+      </div>
+      <div class="market-pills">
+        <span class="pill">USA</span>
+        <span class="pill">UK</span>
+        <span class="pill">UAE</span>
+        <span class="pill">Australia</span>
+        <span class="pill">Canada</span>
+        <span class="pill">India</span>
+      </div>
+    </div>
+    <div class="hero-mark">
+      <svg viewBox="0 0 160 160"><use href="#acco-mark"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST STRIP ===================== -->
+<section class="trust-strip">
+  <div class="wrap trust-grid">
+    <div class="trust-item">
+      <h4>Financial Accuracy</h4>
+      <p>GAAP, IFRS &amp; UK FRS 102 compliant</p>
+    </div>
+    <div class="trust-item">
+      <h4>AI-Powered Workflow</h4>
+      <p>Smart automation &amp; analytics</p>
+    </div>
+    <div class="trust-item">
+      <h4>6+ Countries</h4>
+      <p>Served globally, every time zone</p>
+    </div>
+    <div class="trust-item">
+      <h4>Data Security</h4>
+      <p>Enterprise-grade protection</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CORE SERVICES OVERVIEW ===================== -->
+<section class="core-services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Four ways we run your finance function</h2>
+      <p>From day-to-day bookkeeping to full back-office outsourcing, pick the layer of support that fits where you are today.</p>
+    </div>
+    <div class="core-grid">
+      <div class="core-card">
+        <div class="num">01</div>
+        <div><h3>CPA Firm Outsourcing</h3><p>Back-office capacity for CPA and accounting firms, from tax season overflow to year-round staffing.</p></div>
+      </div>
+      <div class="core-card">
+        <div class="num">02</div>
+        <div><h3>Accounting BPO Support</h3><p>End-to-end bookkeeping, reconciliation, and reporting run by a dedicated team.</p></div>
+      </div>
+      <div class="core-card">
+        <div class="num">03</div>
+        <div><h3>Financial Service Solutions</h3><p>Virtual CFO, forecasting, and advisory support for growing businesses.</p></div>
+      </div>
+      <div class="core-card">
+        <div class="num">04</div>
+        <div><h3>E-commerce Accounting</h3><p>Multi-channel reconciliation built for Amazon, Shopify, Etsy and beyond.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DETAILED SERVICE SECTIONS ===================== -->
+<section class="detailed-services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Services, in detail</div>
+      <h2>A full accounting department, built around your books</h2>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="6" width="26" height="28" rx="1"/><line x1="13" y1="14" x2="27" y2="14"/><line x1="13" y1="20" x2="27" y2="20"/><line x1="13" y1="26" x2="22" y2="26"/></svg>
+        <h3>Accounting &amp; Bookkeeping</h3>
+        <p class="cat-desc">The daily ledger work that keeps every downstream number correct.</p>
+      </div>
+      <ul class="service-list">
+        <li>Bookkeeping Services</li><li>Cloud-Based Accounting</li><li>Double-Entry System</li>
+        <li>Ledger &amp; Trial Balance</li><li>Accounts Receivable (AR) Management</li><li>Accounts Payable (AP) Management</li>
+        <li>Bank Reconciliation</li><li>Transaction Recording &amp; Categorization</li><li>Financial Statement Preparation</li>
+        <li>Monthly Financial Reporting</li><li>Cash Flow Management</li><li>Budgeting &amp; Forecasting</li>
+        <li>Depreciation &amp; Amortization</li><li>Compliance &amp; Reporting</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="14" r="6"/><path d="M8 34c1-7 6-11 12-11s11 4 12 11"/></svg>
+        <h3>CPA Accounting Support</h3>
+        <p class="cat-desc">Dedicated staffing so your firm can take on more clients without adding headcount.</p>
+      </div>
+      <ul class="service-list">
+        <li>CPA Firm Back Office Support</li><li>Accounting Process Outsourcing</li><li>Financial Reporting Assistance</li>
+        <li>Audit Support</li><li>Tax Preparation Support</li><li>Client Accounting Support</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="10" width="28" height="20" rx="2"/><line x1="6" y1="17" x2="34" y2="17"/></svg>
+        <h3>Accounting Software Solutions</h3>
+        <p class="cat-desc">Setup, migration, and ongoing support across every major platform.</p>
+      </div>
+      <ul class="service-list">
+        <li>QuickBooks Online Setup &amp; Support</li><li>QuickBooks Desktop Support</li><li>Xero Accounting Services</li>
+        <li>Wave Accounting Support</li><li>Zoho Books Support</li><li>FreshBooks Support</li>
+        <li>Sage 50 Support</li><li>Accounting Software Migration</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="14"/><path d="M20 12v8l6 4"/></svg>
+        <h3>Payroll Services</h3>
+        <p class="cat-desc">Accurate, on-time payroll — and cleanup when it isn't.</p>
+      </div>
+      <ul class="service-list">
+        <li>Time &amp; Attendance Tracking</li><li>Payroll Processing</li><li>Gross Salary Calculation</li>
+        <li>Payroll Taxes</li><li>Payroll Reconciliation</li><li>Payroll Reporting</li>
+        <li>Payroll Tax Error Fixing</li><li>Payroll Tax Payment &amp; Filing</li><li>Maintain Payroll Compliance</li>
+        <li>Employee Payment Management</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 6l12 6v8c0 9-6 13-12 14C14 33 8 29 8 20v-8z"/></svg>
+        <h3>Tax &amp; Compliance Support</h3>
+        <p class="cat-desc">Stay filed, current, and ready for review in every market you operate in.</p>
+      </div>
+      <ul class="service-list">
+        <li>VAT Support</li><li>Tax Documentation</li><li>Tax Compliance Assistance</li><li>US Tax Support Services</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 20h10M22 20h10M14 14l-6 6 6 6M26 14l6 6-6 6"/></svg>
+        <h3>Reconciliation Services</h3>
+        <p class="cat-desc">Every account matched, every discrepancy explained.</p>
+      </div>
+      <ul class="service-list">
+        <li>Bank Reconciliation</li><li>Credit Card &amp; PayPal Reconciliation</li><li>Accounts Receivable Reconciliation</li>
+        <li>Accounts Payable Reconciliation</li><li>Payroll Reconciliation</li><li>E-Commerce Reconciliation</li>
+        <li>Reconciliation Error Fixing &amp; Cleanup</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 30l7-11 6 6 9-14"/><path d="M9 34h22"/></svg>
+        <h3>Financial Reporting</h3>
+        <p class="cat-desc">Clear statements your lenders, investors, and board can rely on.</p>
+      </div>
+      <ul class="service-list">
+        <li>Income Statement (P&amp;L)</li><li>Balance Sheet</li><li>Cash Flow Statement</li>
+        <li>Accounting Standards &amp; Frameworks</li><li>Auditing &amp; Assurance</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="7" y="9" width="26" height="22" rx="1"/><line x1="7" y1="16" x2="33" y2="16"/></svg>
+        <h3>Accounts Payable</h3>
+        <p class="cat-desc">Vendors paid correctly and on schedule, with a clean audit trail.</p>
+      </div>
+      <ul class="service-list">
+        <li>Vendor Invoice Processing</li><li>Payment Authorization &amp; Approval</li><li>Payment Execution</li>
+        <li>Vendor Reconciliation</li><li>Expense Reporting &amp; Analysis</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 12h24v18H8z"/><path d="M8 12l12 9 12-9"/></svg>
+        <h3>Accounts Receivable</h3>
+        <p class="cat-desc">Faster collections and fewer aged invoices on your books.</p>
+      </div>
+      <ul class="service-list">
+        <li>Invoicing</li><li>Payment Posting</li><li>Credit Management</li><li>Collections</li><li>AR Reconciliation</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="9" y="7" width="22" height="26" rx="1"/><path d="M15 17l4 4 8-8"/></svg>
+        <h3>Financial Auditing</h3>
+        <p class="cat-desc">Independent, methodical assurance work you can stand behind.</p>
+      </div>
+      <ul class="service-list">
+        <li>Independence &amp; Objectivity</li><li>Audit Planning &amp; Risk Assessment</li><li>Substantive Procedures &amp; Testing</li>
+        <li>Internal Controls Evaluation</li><li>Audit Report &amp; Communication</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div>
+        <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="15" cy="15" r="4"/><circle cx="27" cy="27" r="4"/><path d="M11 26l18-18"/></svg>
+        <h3>E-Commerce Bookkeeping</h3>
+        <p class="cat-desc">Multi-channel sales, fees, and payouts reconciled into one clean set of books.</p>
+      </div>
+      <ul class="service-list">
+        <li>Amazon &amp; Amazon FBA Bookkeeping</li><li>eBay &amp; Walmart Bookkeeping</li><li>Shopify &amp; Etsy Bookkeeping</li>
+        <li>Square Sales</li><li>Apps Integration (A2X, Dext)</li><li>Hubdoc &amp; Bill.com</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== COUNTRY-SPECIFIC TAX & COMPLIANCE ===================== -->
+<section class="country-tax" id="tax">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Country coverage</div>
+      <h2>Tax &amp; compliance, market by market</h2>
+      <p>Local forms, local deadlines, local rules — handled by people who work in them every day.</p>
+    </div>
+
+    <div class="country-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="us">US Tax Filing</button>
+      <button class="tab-btn" data-tab="uk">UK Tax Filing</button>
+      <button class="tab-btn" data-tab="vat">VAT, GST &amp; Sales Tax</button>
+      <button class="tab-btn" data-tab="uae">UAE &amp; Bangladesh</button>
+      <button class="tab-btn" data-tab="ukadv">UK Advisory</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-us">
+      <div class="tax-cols">
+        <div class="tax-col">
+          <h4>Forms &amp; filing</h4>
+          <ul>
+            <li>1040, 1040NR, 1040SR forms</li>
+            <li>1065, 1120/1120S, 990, 1041 forms</li>
+            <li>Amendment (1040-X), Penalty &amp; Audit Handling</li>
+            <li>Federal &amp; State Tax Filing A–Z</li>
+          </ul>
+        </div>
+        <div class="tax-col">
+          <h4>Software &amp; documentation</h4>
+          <ul>
+            <li>TurboTax, ProConnect, TaxAct, FreeTaxUSA</li>
+            <li>W-2, 1099-NEC, 1099-MISC, Schedule C/D/E/K</li>
+            <li>EITC, CTC, ACTC, AOTC, PTC, EV Tax Credit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-uk">
+      <div class="tax-cols">
+        <div class="tax-col">
+          <h4>Personal &amp; partnership</h4>
+          <ul>
+            <li>Self-Assessment Tax Return (SA100)</li>
+            <li>Self-Employed Filing (SA103)</li>
+            <li>Partnership Return (SA800/SA104)</li>
+            <li>Capital Gains Tax Filing (SA108)</li>
+          </ul>
+        </div>
+        <div class="tax-col">
+          <h4>Business &amp; payroll</h4>
+          <ul>
+            <li>Business Tax Return (CT600)</li>
+            <li>VAT Return Submission (VAT100)</li>
+            <li>PAYE &amp; Payroll Filing (RTI)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-vat">
+      <div class="tax-cols">
+        <div class="tax-col">
+          <h4>VAT &amp; sales tax</h4>
+          <ul>
+            <li>Accurate VAT Calculation &amp; Recording</li>
+            <li>VAT Return Preparation &amp; Filing</li>
+            <li>Sales Tax Return Filing</li>
+            <li>UK VAT Return</li>
+          </ul>
+        </div>
+        <div class="tax-col">
+          <h4>By market</h4>
+          <ul>
+            <li>Australia GST Return</li>
+            <li>Canada GST/HST/PST Filings</li>
+            <li>Bangladesh Personal Income Tax Filing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-uae">
+      <div class="tax-cols">
+        <div class="tax-col">
+          <h4>Setup &amp; registration</h4>
+          <ul>
+            <li>Business Setup, License &amp; Investor VISA</li>
+            <li>Bank Account Opening &amp; Trademark</li>
+            <li>Corporate Tax Registration &amp; Planning</li>
+            <li>VAT Registration &amp; Return Filing</li>
+          </ul>
+        </div>
+        <div class="tax-col">
+          <h4>Advisory</h4>
+          <ul>
+            <li>Financial Advisory &amp; Virtual CFO</li>
+            <li>Business Performance Monitoring &amp; Internal Audit</li>
+            <li>Fundraising, Investment Evaluation &amp; Due Diligence</li>
+            <li>Business &amp; Asset Valuation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-ukadv">
+      <div class="tax-cols">
+        <div class="tax-col">
+          <h4>Compliance &amp; payroll</h4>
+          <ul>
+            <li>Company Accounts &amp; Filing</li>
+            <li>Pension Auto-Enrolment</li>
+            <li>CIS Returns &amp; NIC Assessment</li>
+            <li>Corporate &amp; Personal Tax Planning</li>
+          </ul>
+        </div>
+        <div class="tax-col">
+          <h4>Growth &amp; specialist sectors</h4>
+          <ul>
+            <li>R&amp;D Tax Credit Claims &amp; HMRC Support</li>
+            <li>Company Formation &amp; M&amp;A Support</li>
+            <li>Virtual CFO &amp; Outsourced Finance</li>
+            <li>E-Commerce, IR35, Real Estate &amp; Healthcare Accounting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PREMIUM AI BANNER ===================== -->
+<section class="premium-ai">
+  <div class="wrap premium-grid">
+    <div>
+      <div class="eyebrow">Premium</div>
+      <h2>AI Agentic accounting, done for you</h2>
+      <p>Our agentic layer reads, categorizes, and reconciles your transactions continuously — so your team reviews exceptions instead of doing the entry work by hand.</p>
+      <a href="#consult" class="btn btn-white">Talk to our AI team</a>
+    </div>
+    <ul class="premium-list">
+      <li><strong>Auto-categorization</strong>Transactions coded against your chart of accounts in real time.</li>
+      <li><strong>Anomaly detection</strong>Flags mismatches and duplicate entries before they reach your statements.</li>
+      <li><strong>Continuous close</strong>Books stay reconciled daily, not just at month-end.</li>
+      <li><strong>Human-reviewed</strong>Every AI output is checked by a qualified accountant before it's final.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== PRICING: BPO PACKAGES ===================== -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>BPO packages</h2>
+      <p>Monthly bookkeeping and accounting support, scaled to your transaction volume.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Basic</h3>
+        <div class="price-amount">$100<span>/month</span></div>
+        <div class="sub">For lean, early-stage books</div>
+        <ul>
+          <li>Company Setup</li>
+          <li>Up to 300 Transactions Category</li>
+          <li>Transactions Cleanup &amp; Catch Up</li>
+          <li>Reconciliation Error Fixing</li>
+          <li>Accounts Receivable</li>
+          <li>Accounts Payable</li>
+          <li>Bookkeeping, Accounting &amp; Reconciliation</li>
+        </ul>
+        <a href="#consult" class="btn btn-outline">Get Started</a>
+      </div>
+      <div class="price-card popular">
+        <span class="badge">Most Popular</span>
+        <h3>Standard</h3>
+        <div class="price-amount">$200<span>/month</span></div>
+        <div class="sub">For growing businesses with monthly reporting needs</div>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Up to 600 Transactions Category</li>
+          <li>Financial Statements</li>
+        </ul>
+        <a href="#consult" class="btn btn-primary">Get Started</a>
+      </div>
+      <div class="price-card">
+        <h3>Premium</h3>
+        <div class="price-amount">$300<span>/month</span></div>
+        <div class="sub">For businesses running payroll and filing taxes</div>
+        <ul>
+          <li>Everything in Standard</li>
+          <li>Up to 900 Transactions Category</li>
+          <li>Payroll Management</li>
+          <li>Tax Preparation &amp; Filing 1099</li>
+        </ul>
+        <a href="#consult" class="btn btn-outline">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING: US TAX FILING PACKAGES ===================== -->
+<section class="pricing alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>US tax filing packages</h2>
+      <p>Flat-fee filing for individuals, partnerships, and corporations.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Individual</h3>
+        <div class="price-amount">$100</div>
+        <div class="sub">Personal returns, federal and state</div>
+        <ul>
+          <li>Individual Tax Filing (1040, 1040NR, 1040SR)</li>
+          <li>Standard &amp; Itemized Deduction</li>
+          <li>Paper and E-File</li>
+          <li>Federal and State Tax Filing</li>
+          <li>W-2 &amp; 1099-NEC</li>
+          <li>Tax Software: FreeTaxUSA</li>
+        </ul>
+        <a href="#consult" class="btn btn-outline">Contact Now</a>
+      </div>
+      <div class="price-card popular">
+        <span class="badge">Most Popular</span>
+        <h3>Individual &amp; Business</h3>
+        <div class="price-amount">$150</div>
+        <div class="sub">Partnership &amp; self-employed filers</div>
+        <ul>
+          <li>Individual Tax Filing (1040, 1040NR, 1040SR)</li>
+          <li>Business Tax File (1040SC &amp; 1065)</li>
+          <li>Deduction and Credit</li>
+          <li>Paper and E-File (Federal and State)</li>
+          <li>W-2, 1099-NEC, 1099-DIV, 1099-K</li>
+        </ul>
+        <a href="#consult" class="btn btn-primary">Contact Now</a>
+      </div>
+      <div class="price-card">
+        <h3>Individual &amp; Corporation</h3>
+        <div class="price-amount">$250</div>
+        <div class="sub">Self-employed, partnership, S-Corp &amp; C-Corp</div>
+        <ul>
+          <li>Individual Filing (1040, 1040NR, 1040SR, 1040SC)</li>
+          <li>Business Filing (1120S, 1065, 1120, 5472, 990)</li>
+          <li>Deduction and Credit / Paper and E-File</li>
+          <li>Federal and State</li>
+          <li>W-2/1099-NEC/DIV/K/INT/MISC/R, 1095-A/1098-B/1099-B</li>
+        </ul>
+        <a href="#consult" class="btn btn-outline">Contact Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRY-SPECIFIC SOLUTIONS ===================== -->
+<section class="industries" id="industries">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Industries</div>
+      <h2>Built for how your industry actually accounts</h2>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16M4 12h16"/></svg><span>Healthcare Accounting</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12H4z"/></svg><span>Real Estate Accounting</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M6 20V10l5-3 5 3v10"/></svg><span>Manufacturing Accounting</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="12" rx="1"/><path d="M9 21h6"/></svg><span>IT Company Solutions</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg><span>CPA Firm Outsourcing</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 6 6 1-4.5 4.5L18 21l-6-3-6 3 1.5-6.5L3 10l6-1z"/></svg><span>SaaS / Tech &amp; Startups</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/></svg><span>Nonprofit / NGO</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l4-4 4 4v12M13 21v-8l6-4v12"/></svg><span>Construction (CIS)</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16l-1 12H5L4 8zM8 8V6a4 4 0 018 0v2"/></svg><span>Retail Industry</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4A2 2 0 009.5 17h8.6a2 2 0 002-1.6L22 7H5.2"/></svg><span>E-commerce Accounting</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="16" height="12" rx="1"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Freelancers &amp; Contractors (IR35)</span></div>
+      <div class="industry-card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V11l7-6 7 6v10"/><path d="M9 21v-6h6v6"/></svg><span>Hospitality &amp; Restaurants</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENTORSHIP PROGRAM ===================== -->
+<section class="mentorship" id="mentorship">
+  <div class="wrap mentor-grid">
+    <div>
+      <div class="eyebrow">Training</div>
+      <h2>Accounting Software Mentorship Program</h2>
+      <p style="margin-top:16px; max-width:440px;">Learn the systems your finance team runs on, directly from professionals who use them daily.</p>
+      <ul class="mentor-features">
+        <li>One-to-One Mentorship</li>
+        <li>ERP Training</li>
+        <li>Cloud Accounting Training</li>
+        <li>Business Accounting System Setup</li>
+      </ul>
+      <div class="software-badges">
+        <span>QuickBooks</span><span>Xero</span><span>Wave</span><span>Oracle</span><span>SAP</span><span>Tally</span>
+      </div>
+    </div>
+    <div class="expert-callout">
+      <h4>Expert-Led Training</h4>
+      <p>Every session is led by industry professionals with years of hands-on experience running real client books — not generic tutorials. You bring your business, we build the system around it.</p>
+      <a href="#consult" class="btn btn-primary" style="margin-top:22px;">Book a session</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FREE CONSULTATION CTA ===================== -->
+<section class="consult-cta" id="consult">
+  <div class="wrap">
+    <h2>Request a free consultation</h2>
+    <p>Tell us about your books and where you're stuck — we'll reply with a plan, not a pitch.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="mailto:aniruddhasutradhar40@gmail.com" class="btn btn-white">Email us</a>
+      <a href="https://wa.me/8801570219399" target="_blank" rel="noopener" class="btn btn-ghost-white">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><svg viewBox="0 0 160 160"><use href="#acco-mark"/></svg>ACCO</div>
+        <p class="footer-desc">AI-powered accounting &amp; finance BPO for SMEs, CPA firms, and enterprises across the USA, UK, UAE, Australia, Canada, and India.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick links</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#tax">Tax Filing</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#mentorship">Mentorship</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li>Bookkeeping &amp; BPO</li>
+          <li>Payroll Services</li>
+          <li>Tax &amp; Compliance</li>
+          <li>Reconciliation</li>
+          <li>Financial Auditing</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="https://wa.me/8801570219399" target="_blank" rel="noopener">WhatsApp: 01570-219399</a></li>
+          <li><a href="mailto:aniruddhasutradhar40@gmail.com">aniruddhasutradhar40@gmail.com</a></li>
+          <li>Dhaka, Bangladesh</li>
+          <li><a href="https://www.linkedin.com/showcase/acco-project/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://drive.google.com/drive/folders/17Jy9FiVtlLCuPv9Hj2OQVsVu5poUQjCa" target="_blank" rel="noopener">Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ACCO. All rights reserved.</span>
+      <span>Dhaka · USA · UK · UAE · Australia · Canada · India</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/8801570219399" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.01 3C9.38 3 4 8.36 4 14.98c0 2.17.58 4.29 1.68 6.16L4 29l8.06-1.65a12.9 12.9 0 003.95.62h.01c6.63 0 12-5.36 12-11.98C28.02 8.36 22.64 3 16.01 3zm7.02 17.06c-.3.83-1.7 1.6-2.35 1.68-.6.08-1.35.11-2.18-.14-.5-.15-1.14-.36-1.97-.7-3.47-1.5-5.73-4.99-5.9-5.22-.17-.23-1.41-1.87-1.41-3.57 0-1.7.9-2.53 1.21-2.87.32-.35.7-.43.93-.43.23 0 .47 0 .67.01.22.01.5-.08.78.6.3.7 1 2.43 1.09 2.6.09.18.15.39.03.62-.12.23-.18.37-.35.57-.18.2-.37.44-.53.6-.18.17-.36.36-.16.71.2.35.88 1.46 1.9 2.36 1.3 1.16 2.4 1.53 2.75 1.7.35.17.55.15.76-.09.2-.24.87-1.02 1.1-1.37.24-.35.47-.29.79-.17.32.11 2.03.96 2.38 1.13.35.17.58.26.66.4.09.15.09.85-.2 1.68z"/></svg>
+</a>
+
+<script>
+  var hb = document.getElementById('hamburgerBtn');
+  var mn = document.getElementById('mobileNav');
+  hb.addEventListener('click', function(){
+    var open = mn.classList.toggle('open');
+    hb.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.mobile-nav a').forEach(function(a){
+    a.addEventListener('click', function(){ mn.classList.remove('open'); hb.setAttribute('aria-expanded', 'false'); });
+  });
+
+  var tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
